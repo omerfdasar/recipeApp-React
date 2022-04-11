@@ -1,12 +1,14 @@
-
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+// import { ExternalLink } from "react-external-link";
 export const Nav = styled.div`
+  /* açık yeşil olan navbar */
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between; //yatayda aralıklı objeler halinde ortala
+  align-items: center; // dikeyde ortala
   flex-wrap: wrap;
+  /* Varsayılan olarak esnek öğeler tek bir satıra sığmaya çalışırlar. Gerektiğinde birden fazla satıra yaymak için bu özelliği kullanabilirsiniz */
   background: #e1f1dd;
   border-radius: 0 0 10px 10px;
   height: 75px;
@@ -14,7 +16,9 @@ export const Nav = styled.div`
 `;
 export const Hamburger = styled.div`
   display: none;
+  /* Bir öğeyi gizleme özelliği  Öğe gizlenecek ve sayfa, öğe orada değilmiş gibi alttaki stiller yok gibi görüntülenecektir: */
   flex-direction: column;
+  /*çizgiler üstüste hamburger gibi */
   cursor: pointer;
   span {
     height: 4px;
@@ -24,8 +28,9 @@ export const Hamburger = styled.div`
     margin-bottom: 4px;
     border-radius: 5px;
   }
-  @media (max-width: 768px)  {
+  @media (max-width: 768px) /* ekran 768 den küçülünce hamburger şekli gözüksün */ {
     display: flex;
+    /* kapsayıcı içerisindeki öğelere artık esneklik vermek için, artık gözükmesi için*/
   }
 `;
 
@@ -38,7 +43,7 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   /* kelimelerin altı çizili olmasın */
   color: #02475e;
-  
+
   /* transition: all 0.3s ease-in; */
   font-size: 2rem;
   font-family: "Girassol", sans-serif;
@@ -47,23 +52,31 @@ export const MenuLink = styled(Link)`
     font-weight: bold;
   }
   @media (max-width: 768px) {
-    
+    /* hamburger meydana çıktığında (tıklanınca açılan merdiven, Menu deki ölçüyle aynı olmalı) */
+    /* ekran küçülünce alttaki stiller olsun */
     border: 1px solid #00adb5;
     border-radius: 10px;
     width: 91%;
   }
 `;
 export const Menu = styled.div`
-background: #e1f1dd;
+  /* navbardaki 3 kelime about ...hepsini içine alan sarmalın (kutunun ) özellikleri*/
+  background: #e1f1dd;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  /* diğer stillere göre ayarla kendini, bunu yazmazsak food app in altında kalacak */
+  /* 3 kelime  açılınca üstteki özelliklerde olsun*/
   @media (max-width: 768px) {
     overflow: hidden;
+    /* uzun yazı olurda taşarsa gizle */
     flex-direction: column;
     width: 100%;
-    max-height:${({osman})=>(osman?"300px":"0")}
+    /* gap:2px; */
+
+    max-height: ${({ open }) => (open ? "300px" : "0")};
+    /* transition: max-height 0.3s ease-in; */
   }
 `;
 export const Logo = styled(Link)`

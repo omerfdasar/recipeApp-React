@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, RecipeCard, RecipeHeader, RecipeImage } from "./HomeStyles";
 
-const RecipeCardComp = () => {
+const RecipeCardComp = ({ recipe }) => {
+  const navigate = useNavigate();
+  const moreClick = () => {
+    navigate("/details", { state: { recipe } });
+  };
   return (
-    <div>RecipeCardComp</div>
-  )
-}
+    <RecipeCard>
+      <RecipeHeader>{recipe.label}</RecipeHeader>
+      <RecipeImage src={recipe.image} alt="photo" />
+      <Button onClick={moreClick}>View More</Button>
+    </RecipeCard>
+  );
+};
 
-export default RecipeCardComp
+export default RecipeCardComp;
