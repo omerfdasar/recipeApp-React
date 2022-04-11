@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
-      <Logo to="/home" >
+      <Logo to="/home">
         <i>{"<Omer>"}</i>
         <span> Recipe</span>
       </Logo>
@@ -21,7 +21,11 @@ const Navbar = () => {
         <MenuLink to="/github" onClick={() => setIsOpen(!isOpen)}>
           Github
         </MenuLink>
-        <MenuLink to="/" onClick={() => setIsOpen(!isOpen)}>
+        <MenuLink
+          onClick={() => setIsOpen(!isOpen)}
+          onMouseUp={() => sessionStorage.clear()}
+          to="/"
+        >
           Logout
         </MenuLink>
       </Menu>
