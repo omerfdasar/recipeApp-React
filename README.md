@@ -4,6 +4,8 @@
 
 ## Description
 
+![project-img7](https://user-images.githubusercontent.com/93737841/179800072-4457b150-0c36-42cb-955c-7de88c526d2b.jpg)
+
 Project aims to create a Recipe App.
 
 ## Problem Statement
